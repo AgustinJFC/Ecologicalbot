@@ -1,0 +1,48 @@
+import discord
+import random
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'We have logged in as {bot.user}')
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send(f'Hola, soy un ecologicalbot {bot.user}! y mi funcion es ayudarte a reciclar! Para ver la lista de comandos escribe $comand ')
+
+@bot.command()
+async def comand(ctx):
+    await ctx.send(f'La lista de comandos son : $tiempo (Para saber cuanto tiempo se demora en degradarse un objeto)    $hora (Para recomendar la mejor hora para botar la basura)')
+
+
+@bot.command()
+async def time (ctx):
+    await ctx.send(f"Aqui va una lista: 
+                   Una botella vidrio se demora 4000 años en degradarse 
+                   Una pila se demora de 500 a 1000 años en degradarse 
+                   Una bolsa de plástico se demora 150 años en degradarse 
+                   Una botella de plástico se demora 1000 años en degradarse 
+                   Un mechero se demora 100 años en degradarse 
+                   Unas Latas de refresco se demoran 10 años en degradarse 
+                   Un chicle se demora 5 años en degradarse 
+                   Un papel se demora 1 año en degradarse 
+                   Un cigarrillo de 2 a 10 años en degradarse 
+                   Unos pañales se demoran de 300 a 500 años en degradarse 
+                   Una Toalla se demora 500 a 800 años en degradarse 
+                   residuos organicos desde 2 días hasta 4 semanas")
+
+
+
+@bot.command()
+async def hora (ctx):
+    await ctx.send(random.choice(["Una buena hora para botar la basura son las 6 pm", "Una buena hora para botar la basura son las 6:30 pm", "Una buena hora para botar la basura son las 7 pm", "Una buena hora para botar la basura son las 7:30 pm", "Una buena hora para botar la basura son las 8 pm"]))
+
+
+
+
+bot.run("token")
