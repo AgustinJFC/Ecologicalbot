@@ -21,7 +21,7 @@ async def comand(ctx):
 
 
 @bot.command()
-async def time (ctx):
+async def tiempo (ctx):
     await ctx.send(f"Aqui va una lista: 
                    Una botella vidrio se demora 4000 años en degradarse 
                    Una pila se demora de 500 a 1000 años en degradarse 
